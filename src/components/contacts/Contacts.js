@@ -12,8 +12,8 @@ class Contacts extends Component {
 
           return (
             <React.Fragment>
-              <h1 className="display-4 mb-2">
-                <span className="text-danger">Contact List</span>
+              <h1 className="display-4 mb-4">
+                <span className="text-white ">Contact List</span>
               </h1>
               {contacts.map((contact) => (
                 <Contact key={contact.id} contact={contact} />

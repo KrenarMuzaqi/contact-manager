@@ -1,0 +1,17 @@
+.text-blue {
+  color: #008bbe;
+}
+.text-white {
+  color: #fff;
+}
+body {
+  background: linear-gradient(53deg, rgb(0, 139, 190) 50%, #009ebd 0);
+  background-repeat: no-repeat;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.navbar {
+  margin-bottom: 60px;
+  background-color: #008bbe !important;
+}

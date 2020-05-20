@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import axios from "axios";
+import { Link } from "react-router-dom";
 
 import { Consumer } from "../../context";
 
@@ -13,8 +15,21 @@ class Contact extends Component {
     });
   };
 
-  onDeleteClick = (id, dispatch) => {
-    dispatch({ type: "DELETE_CONTACT", payload: id });
+  //tek array function we should put "async" before parameters not before name of function
+  onDeleteClick = async (id, dispatch) => {
+    // await axios.delete(`https://jsonplaceholder.typicode.com/users/${id}`);
+
+    // dispatch({ type: "DELETE_CONTACT", payload: id });
+
+    //userin e ri qe e shtojm nuk mundemi me e fshi per arsye se nuk egziston ne DB te JSON API por ne DOM tonin
+    //nese e kishum pas DB ton ateher kish funksionu kodi me siper por per kete mundemi me ba me "try catch"
+
+    try {
+      await axios.delete(`https://jsonplaceholder.typicode.com/users/${id}`);
+      dispatch({ type: "DELETE_CONTACT", payload: id });
+    } catch (e) {
+      dispatch({ type: "DELETE_CONTACT", payload: id });
+    }
   };
 
   render() {
@@ -39,6 +54,17 @@ class Contact extends Component {
                   style={{ cursor: "pointer", float: "right", color: "red" }}
                   className="fas fa-times"
                 ></i>
+                <Link to={`contact/edit/${id}`}>
+                  <i
+                    className="fas fa-pencil-alt"
+                    style={{
+                      cursor: "pointer",
+                      float: "right",
+                      marginRight: "10px",
+                      color: "black",
+                    }}
+                  ></i>
+                </Link>
               </h4>
               {showContactInfo ? (
                 <ul className="list-group">

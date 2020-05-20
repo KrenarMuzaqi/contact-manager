@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 const Header = ({ branding }) => {
   return (
@@ -11,9 +12,25 @@ const Header = ({ branding }) => {
         <div>
           <ul className="navbar-nav mr-auto">
             <li className="nav-item">
-              <a className="nav-link" href="/home">
+              <Link className="nav-link" to="/">
+                <i className="fas fa-home" style={{ marginRight: "8px" }}></i>
                 Home
-              </a>
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/contact/add">
+                <i className="fas fa-plus" style={{ marginRight: "8px" }}></i>
+                Add Contact
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/about">
+                <i
+                  className="fas fa-question"
+                  style={{ marginRight: "8px" }}
+                ></i>
+                About
+              </Link>
             </li>
           </ul>
         </div>
